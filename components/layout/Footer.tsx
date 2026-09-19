@@ -112,6 +112,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/contact" className="hover:text-orange-400 transition-colors flex items-center gap-1.5">
+                  <ArrowRight className="w-3.5 h-3.5 text-orange-500" /> Contact Us
+                </Link>
+              </li>
+              <li>
                 <Link href="/#book-repair" className="hover:text-orange-400 transition-colors flex items-center gap-1.5">
                   <ArrowRight className="w-3.5 h-3.5 text-orange-500" /> Book a Repair
                 </Link>
