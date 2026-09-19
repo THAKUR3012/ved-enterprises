@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 64" fill="none" width="280" height="64">
+  <!-- Brand Icon Shield & Wrench / V symbol -->
+  <defs>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F2C59" />
+      <stop offset="100%" stop-color="#1E3A8A" />
+    </linearGradient>
+    <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EA580C" />
+      <stop offset="100%" stop-color="#F97316" />
+    </linearGradient>
+  </defs>
+
+  <!-- Stylized Icon Badge -->
+  <rect x="4" y="8" width="48" height="48" rx="12" fill="url(#blueGrad)" />
+  <path d="M14 20L28 44L42 20" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="28" cy="24" r="5" fill="url(#orangeGrad)" />
+  <path d="M28 29V36" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M22 41H34" stroke="url(#orangeGrad)" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Brand Typography -->
+  <text x="64" y="32" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="800" fill="#0F2C59" letter-spacing="-0.5">VED</text>
+  <text x="114" y="32" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="700" fill="#EA580C" letter-spacing="-0.5">ENTERPRISES</text>
+  <text x="65" y="47" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" font-weight="600" fill="#64748B" letter-spacing="1.5">HOME APPLIANCE CARE &amp; SERVICE</text>
+</svg>

@@ -1,0 +1,65 @@
+services:
+  # MySQL 8 Database
+  mysql:
+    image: mysql:8.0
+    container_name: ved_mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root_secure_password_2026}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-ved_enterprises}
+      MYSQL_USER: ${MYSQL_USER:-ved_user}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-ved_user_password_2026}
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - ved_network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Next.js Full-Stack Application
+  nextjs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ved_nextjs
+    restart: unless-stopped
+    depends_on:
+      mysql:
+        condition: service_healthy
+    environment:
+      - NODE_ENV=production
+      - DATABASE_URL=mysql://${MYSQL_USER:-ved_user}:${MYSQL_PASSWORD:-ved_user_password_2026}@mysql:3306/${MYSQL_DATABASE:-ved_enterprises}
+      - JWT_SECRET=${JWT_SECRET:-ved_enterprises_super_secret_jwt_key_2026}
+      - NEXT_PUBLIC_SITE_URL=${NEXT_PUBLIC_SITE_URL:-http://localhost}
+    networks:
+      - ved_network
+    expose:
+      - "3000"
+
+  # Nginx Reverse Proxy & Static Asset Accelerator
+  nginx:
+    image: nginx:alpine
+    container_name: ved_nginx
+    restart: unless-stopped
+    depends_on:
+      - nextjs
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+    networks:
+      - ved_network
+
+volumes:
+  mysql_data:
+    driver: local
+
+networks:
+  ved_network:
+    driver: bridge
