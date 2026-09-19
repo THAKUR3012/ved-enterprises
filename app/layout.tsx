@@ -38,6 +38,11 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_IN",
   },
+  icons: {
+    icon: "/images/ved-logo-transparent.webp",
+    shortcut: "/favicon.ico",
+    apple: "/images/ved-logo-transparent.webp",
+  },
 };
 
 export default function RootLayout({

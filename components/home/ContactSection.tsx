@@ -2,6 +2,7 @@ import React from "react";
 import { Phone, MessageSquare, MapPin, Clock, Mail, ShieldAlert } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/constants";
 import { createTelLink, createWhatsAppLink } from "@/lib/utils";
+import { BrandLogo } from "@/components/layout/BrandLogo";
 
 export function ContactSection() {
   const whatsappUrl = createWhatsAppLink(
@@ -87,8 +88,11 @@ export function ContactSection() {
           {/* Card 3: Service Hub */}
           <div className="bg-slate-50 rounded-2xl p-7 border border-slate-200/90 hover:border-blue-300 transition-all flex flex-col justify-between">
             <div>
-              <div className="w-12 h-12 rounded-xl bg-orange-100 text-[#EA580C] flex items-center justify-center mb-4">
-                <MapPin className="w-6 h-6" />
+              <div className="flex items-center justify-between mb-4">
+                <div className="w-12 h-12 rounded-xl bg-orange-100 text-[#EA580C] flex items-center justify-center">
+                  <MapPin className="w-6 h-6" />
+                </div>
+                <BrandLogo size="sm" />
               </div>
               <h3 className="text-lg font-bold text-[#0F2C59] mb-1">Service Hub Address</h3>
               <p className="text-xs text-slate-500 mb-4">

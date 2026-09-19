@@ -20,6 +20,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { bookingSchema, BookingFormData } from "@/lib/validations/booking";
 import { SITE_CONFIG, SERVICES_LIST } from "@/lib/constants";
 import { createWhatsAppLink, createTelLink } from "@/lib/utils";
+import { BrandLogo } from "@/components/layout/BrandLogo";
 
 interface SuccessState {
   bookingNumber: string;
@@ -164,6 +165,9 @@ export function BookingSection() {
           {successData ? (
             /* Success Screen as required in Step 17 */
             <div className="py-8 text-center space-y-6 animate-in zoom-in-95 duration-300">
+              <div className="flex justify-center mb-1">
+                <BrandLogo size="sm" />
+              </div>
               <div className="w-20 h-20 rounded-full bg-emerald-100 text-emerald-600 mx-auto flex items-center justify-center shadow-inner">
                 <CheckCircle2 className="w-12 h-12" />
               </div>

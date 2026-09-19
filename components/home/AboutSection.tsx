@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { CheckCircle2, ShieldCheck, Award, Users, MapPin, Star, ArrowRight } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/constants";
+import { BrandLogo } from "@/components/layout/BrandLogo";
 
 export function AboutSection() {
   return (
@@ -112,8 +113,11 @@ export function AboutSection() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0F2C59]/80 via-transparent to-transparent" />
 
-                <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-md rounded-2xl p-5 shadow-xl border border-white/40">
-                  <div className="flex items-center gap-3 mb-2">
+                <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-md rounded-2xl p-5 shadow-xl border border-white/40 space-y-3">
+                  <div className="pb-2 border-b border-slate-100">
+                    <BrandLogo size="sm" />
+                  </div>
+                  <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-xl bg-blue-100 text-[#0F2C59] flex items-center justify-center font-bold">
                       <ShieldCheck className="w-5 h-5" />
                     </div>
