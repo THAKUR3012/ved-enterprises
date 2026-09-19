@@ -1,7 +1,7 @@
 import React from "react";
-import { MessageCircle, Phone } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/constants";
-import { createTelLink, createWhatsAppLink } from "@/lib/utils";
+import { createWhatsAppLink } from "@/lib/utils";
 
 export function FloatingContactButtons() {
   const whatsappUrl = createWhatsAppLink(
@@ -10,31 +10,19 @@ export function FloatingContactButtons() {
   );
 
   return (
-    <aside aria-label="Floating direct contact actions" className="hidden md:flex fixed bottom-8 right-6 z-40 flex-col items-end gap-3 pointer-events-auto">
-      {/* Floating Call CTA */}
-      <a
-        href={createTelLink(SITE_CONFIG.contact.phoneRaw)}
-        aria-label="Direct Phone Call to Ved Enterprises"
-        className="group flex items-center gap-2 bg-[#09090b] hover:bg-black text-white p-3.5 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 border border-zinc-700"
-      >
-        <Phone className="w-5 h-5 animate-pulse" />
-        <span className="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs transition-all duration-300 ease-in-out font-bold text-xs pr-1">
-          Call {SITE_CONFIG.contact.phone}
-        </span>
-      </a>
-
-      {/* Floating WhatsApp CTA */}
+    <aside
+      aria-label="Floating WhatsApp contact button"
+      className="fixed bottom-6 right-6 z-40 pointer-events-auto"
+    >
+      {/* Floating WhatsApp CTA Only */}
       <a
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat on WhatsApp with Ved Enterprises"
-        className="group flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white p-3.5 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 border border-white/20"
+        className="flex items-center justify-center w-14 h-14 bg-[#25D366] hover:bg-[#20ba5a] text-white rounded-full shadow-2xl hover:shadow-emerald-500/40 transition-all duration-300 hover:scale-110 active:scale-95 border-2 border-white"
       >
-        <MessageCircle className="w-5 h-5 fill-white" />
-        <span className="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs transition-all duration-300 ease-in-out font-bold text-xs pr-1">
-          Chat on WhatsApp
-        </span>
+        <MessageCircle className="w-7 h-7 fill-white text-white" />
       </a>
     </aside>
   );
