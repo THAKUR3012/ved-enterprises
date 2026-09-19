@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { SITE_CONFIG, SERVICES_LIST, SERVICE_AREAS } from "@/lib/constants";
 import { createTelLink } from "@/lib/utils";
+import { BrandLogo } from "@/components/layout/BrandLogo";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -21,14 +22,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 pb-12 border-b border-white/10">
           {/* Col 1: Brand & Bio */}
           <div className="lg:col-span-2 space-y-5">
-            <div className="relative w-56 h-12">
-              <Image
-                src="/images/logo.svg"
-                alt="Ved Enterprises Logo"
-                fill
-                className="object-contain object-left brightness-125"
-              />
-            </div>
+            <BrandLogo variant="footer" />
             <p className="text-slate-400 text-sm leading-relaxed max-w-sm">
               Ved Enterprises delivers rapid, certified, and affordable doorstep home appliance
               repair and maintenance. We use 100% genuine spare parts backed by our satisfaction warranty.
