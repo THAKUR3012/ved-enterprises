@@ -15,7 +15,7 @@ export function FloatingContactButtons() {
       <a
         href={createTelLink(SITE_CONFIG.contact.phoneRaw)}
         aria-label="Direct Phone Call to Ved Enterprises"
-        className="group flex items-center gap-2 bg-[#0F2C59] hover:bg-[#091A36] text-white p-3.5 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 border border-white/20"
+        className="group flex items-center gap-2 bg-[#09090b] hover:bg-black text-white p-3.5 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 border border-zinc-700"
       >
         <Phone className="w-5 h-5 animate-pulse" />
         <span className="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs transition-all duration-300 ease-in-out font-bold text-xs pr-1">

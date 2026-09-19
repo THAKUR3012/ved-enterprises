@@ -86,7 +86,7 @@ export function ServiceAreasSection() {
         </div>
 
         {/* Can't find your area card */}
-        <div className="mt-10 rounded-2xl bg-gradient-to-r from-blue-900 to-[#0F2C59] text-white p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-md">
+        <div className="mt-10 rounded-2xl bg-[#09090b] border border-zinc-800 text-white p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
           <div className="space-y-1 text-center sm:text-left">
             <h4 className="text-base sm:text-lg font-bold">
               Not sure if your specific locality is covered?

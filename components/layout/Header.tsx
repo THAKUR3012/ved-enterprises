@@ -94,7 +94,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full transition-all duration-300">
       {/* 1. TOP ANNOUNCEMENT & RAPID HELPLINE STRIP (Desktop & Tablet) */}
-      <div className="bg-[#091A36] text-slate-200 text-xs py-2 px-4 hidden lg:block border-b border-white/10">
+      <div className="bg-[#09090b] text-slate-200 text-xs py-2 px-4 hidden lg:block border-b border-zinc-800">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           {/* Left: Trust & Speed Badges */}
           <div className="flex items-center space-x-6">

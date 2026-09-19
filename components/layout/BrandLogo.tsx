@@ -12,7 +12,7 @@ export function BrandLogo({
   variant = "header",
   size = "default",
 }: BrandLogoProps) {
-  const isFooter = variant === "footer" || variant === "white";
+  const isDarkBg = variant === "footer" || variant === "white";
 
   // Dimensions based on context
   const dimensions = {
@@ -22,16 +22,10 @@ export function BrandLogo({
   };
 
   return (
-    <div
-      className={`inline-flex items-center transition-all select-none ${
-        isFooter
-          ? "bg-white/95 px-3 py-1.5 rounded-xl shadow-md border border-white/20"
-          : ""
-      } ${className}`}
-    >
+    <div className={`inline-flex items-center transition-all select-none bg-transparent ${className}`}>
       <div className={`relative ${dimensions[size]}`}>
         <Image
-          src="/images/ved-logo-transparent.webp"
+          src={isDarkBg ? "/images/ved-logo-white.webp" : "/images/ved-logo-transparent.webp"}
           alt="Ved Enterprises - Home Appliance Repair & Servicing"
           fill
           priority

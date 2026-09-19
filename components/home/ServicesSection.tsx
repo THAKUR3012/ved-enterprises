@@ -139,7 +139,7 @@ export function ServicesSection() {
         </div>
 
         {/* Bottom Banner for custom/commercial appliance requests */}
-        <div className="mt-12 bg-blue-950 text-white rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-lg">
+        <div className="mt-12 bg-[#09090b] border border-zinc-800 text-white rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
           <div className="space-y-1 text-center sm:text-left">
             <h4 className="text-lg sm:text-xl font-bold">Have another home appliance or model?</h4>
             <p className="text-sm text-slate-300">
