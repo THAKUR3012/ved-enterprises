@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { bookingSchema } from "@/lib/validations/booking";
 import { db } from "@/db";
 import { bookings } from "@/db/schema";
+import { addLead } from "@/lib/store";
 
 export async function POST(req: NextRequest) {
   try {
@@ -27,7 +28,24 @@ export async function POST(req: NextRequest) {
     const bookingNumber = `VE-${randomNum}`;
     const bookingId = `book_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`;
 
-    // 3. Save to database if DB is reachable, else log gracefully
+    // 3. Save to persistent store so it shows up in Admin dashboard instantly
+    addLead({
+      bookingNumber,
+      source: "Online Booking",
+      fullName: data.fullName,
+      phone: data.phone,
+      whatsapp: data.whatsapp || null,
+      email: null,
+      address: data.address,
+      applianceType: data.applianceType,
+      serviceRequired: data.serviceRequired,
+      problemDescription: data.problemDescription,
+      preferredDate: data.preferredDate,
+      preferredTime: data.preferredTime,
+      status: "NEW",
+    });
+
+    // 4. Save to MySQL database if DB is reachable
     try {
       await db.insert(bookings).values({
         id: bookingId,
@@ -45,7 +63,6 @@ export async function POST(req: NextRequest) {
         status: "NEW",
       });
     } catch (dbError) {
-      // In development or when MySQL is not yet spawned, log gracefully so customer booking UX remains reliable
       console.warn("Database storage deferred (will sync when MySQL container is up):", dbError);
     }
 

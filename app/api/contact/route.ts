@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { contactSchema } from "@/lib/validations/contact";
 import { db } from "@/db";
 import { contactMessages } from "@/db/schema";
+import { addLead } from "@/lib/store";
 
 export async function POST(req: NextRequest) {
   try {
@@ -23,7 +24,24 @@ export async function POST(req: NextRequest) {
     const data = validationResult.data;
     const messageId = `msg_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`;
 
-    // 2. Insert into database with graceful fallback if MySQL is offline during local dev
+    // 2. Save lead to persistent store for immediate visibility in Admin dashboard
+    const randomNum = Math.floor(100000 + Math.random() * 900000);
+    addLead({
+      bookingNumber: `VE-INQ${randomNum}`,
+      source: "Contact Desk",
+      fullName: data.name,
+      phone: data.phone,
+      email: data.email || null,
+      address: "Submitted via Contact Form",
+      applianceType: data.subject || "General Inquiry",
+      serviceRequired: data.subject || "Customer Inquiry",
+      problemDescription: data.message,
+      preferredDate: "As soon as possible",
+      preferredTime: "Flexible",
+      status: "NEW",
+    });
+
+    // 3. Insert into database with graceful fallback if MySQL is offline during local dev
     try {
       await db.insert(contactMessages).values({
         id: messageId,

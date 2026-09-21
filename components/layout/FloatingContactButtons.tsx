@@ -12,7 +12,7 @@ export function FloatingContactButtons() {
   return (
     <aside
       aria-label="Floating WhatsApp contact button"
-      className="fixed bottom-6 right-6 z-40 pointer-events-auto"
+      className="fixed bottom-24 right-6 z-40 pointer-events-auto"
     >
       {/* Floating WhatsApp CTA Only */}
       <a

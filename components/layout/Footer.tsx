@@ -200,7 +200,9 @@ export function Footer() {
               Terms &amp; Conditions
             </Link>
             <span>•</span>
-            <span className="text-slate-400 font-mono">Official Local Service Partner</span>
+            <Link href="/admin" className="hover:text-orange-400 transition-colors font-semibold">
+              Admin Portal
+            </Link>
           </div>
         </div>
       </div>

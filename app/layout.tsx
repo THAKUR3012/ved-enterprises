@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
-import { MobileConversionBar } from "@/components/layout/MobileConversionBar";
-import { FloatingContactButtons } from "@/components/layout/FloatingContactButtons";
+import { PublicLayoutWrapper } from "@/components/layout/PublicLayoutWrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -53,11 +50,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} scroll-smooth`}>
       <body className="min-h-screen flex flex-col bg-white text-slate-900 antialiased selection:bg-orange-500 selection:text-white">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <FloatingContactButtons />
-        <MobileConversionBar />
+        <PublicLayoutWrapper>{children}</PublicLayoutWrapper>
       </body>
     </html>
   );
